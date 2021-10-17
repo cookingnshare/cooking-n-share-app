@@ -1,8 +1,10 @@
-# Cooking n Share (cooking-n-share-app)
+# Cooking n Share
 
-Open source cooking network
+Open source cooking network, feel free to contributing.
 
-## Install the dependencies
+# Development
+
+## Install the dependen
 ```bash
 yarn
 ```
