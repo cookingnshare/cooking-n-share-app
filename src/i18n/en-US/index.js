@@ -7,7 +7,10 @@
  */
 
 export default {
-  common: {},
+  common: {
+    ingredients: 'Ingredients',
+    likes: 'Likes',
+  },
   messages: {},
   actions: {},
 }
