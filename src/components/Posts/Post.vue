@@ -3,7 +3,7 @@
     <q-card-section>
       <div class="text-h6">{{ post.title }}</div>
       <div class="text-subtitle2 text-grey-8">
-        <q-icon name="ion-alarm" /> {{ post.estimateTime }} Min. |
+        <q-icon name="ion-flame" /> {{ post.estimateTime }} Min. |
         {{ $t("common.ingredients") }} {{ post.ingredients.length }}
       </div>
     </q-card-section>
@@ -12,25 +12,17 @@
       animated
       v-model="slide"
       arrows
-      navigation
+      next-icon="ion-arrow-dropright"
+      prev-icon="ion-arrow-dropleft"
+      swipeable
       infinite
       height="300px"
     >
       <q-carousel-slide
-        :name="1"
-        img-src="https://cdn.quasar.dev/img/mountains.jpg"
-      />
-      <q-carousel-slide
-        :name="2"
-        img-src="https://cdn.quasar.dev/img/parallax1.jpg"
-      />
-      <q-carousel-slide
-        :name="3"
-        img-src="https://cdn.quasar.dev/img/parallax2.jpg"
-      />
-      <q-carousel-slide
-        :name="4"
-        img-src="https://cdn.quasar.dev/img/quasar.jpg"
+        v-for="(image, index) in post.photos"
+        :key="index"
+        :name="index"
+        :img-src="`${image.route}/${image.filename}`"
       />
     </q-carousel>
 
@@ -67,7 +59,7 @@ export default {
   },
   setup() {
     return {
-      slide: ref(1),
+      slide: ref(0),
     };
   },
   methods: {
