@@ -28,15 +28,33 @@
 
     <q-card-section class="q-pt-none">
       <q-btn
+        :ripple="false"
         style="margin-left: -16px"
+        :color="isLiked ? 'red' : 'black'"
+        round
+        flat
+        size="lg"
+        :icon="isLiked ? 'ion-heart' :'ion-heart-empty'"
+        @click="likePost"
+      />
+      <q-btn
+        :ripple="false"
         color="black"
         round
         flat
         size="lg"
-        icon="ion-heart-empty"
+        icon="ion-chatbubbles"
+        @click="viewComments"
       />
-      <q-btn color="black" round flat size="lg" icon="ion-chatbubbles" />
-      <q-btn color="black" round flat size="lg" icon="ion-share-alt" />
+      <q-btn
+        :ripple="false"
+        color="black"
+        round
+        flat
+        size="lg"
+        icon="ion-share-alt"
+        @click="sharePost"
+      />
       <span class="float-right q-mt-md">
         {{ getTimeAgo(post.createdAt) }}
       </span>
@@ -60,11 +78,22 @@ export default {
   setup() {
     return {
       slide: ref(0),
+      isLiked: ref(false),
     };
   },
   methods: {
     getTimeAgo(timestamp) {
       return format(timestamp, "en_US");
+    },
+    likePost() {
+      this.isLiked = !this.isLiked;
+      this.$emit("like-post", this.post);
+    },
+    viewComments () {
+      this.$emit("view-comments", this.post);
+    },
+    sharePost () {
+      this.$emit("share-post", this.post);
     },
   },
 };
