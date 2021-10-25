@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <h5>INDEX PAGE</h5>
+    <h5>AWESOME PROFILE</h5>
   </q-page>
 </template>
 
@@ -8,6 +8,6 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'PageIndex'
+  name: 'Profile'
 })
 </script>
