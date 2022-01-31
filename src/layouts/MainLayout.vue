@@ -8,7 +8,7 @@
         <img
           alt="Cooking n Share logo"
           src="~assets/images/logo-with-text.png"
-          style="width: 10%; height: 5%; max-width: 552px; max-height: 283px; margin-bottom:10px;" 
+          style="width: 10%; height: 5%; max-width: 552px; max-height: 283px; margin-bottom:10px;"
         />
         <q-space></q-space>
         <q-tabs v-model="tab" class="text-gray q-mr-lg" active-color="orange">
@@ -23,7 +23,7 @@
       </q-toolbar>
 
       <q-footer v-else>
-        <q-toolbar class="bg-white text-black">
+        <div class="bg-white text-black">
           <q-tabs v-model="tab" class="text-gray" active-color="orange">
             <q-route-tab
               v-for="(item, index) in menu"
@@ -33,7 +33,7 @@
               :icon="item.icon"
             />
           </q-tabs>
-        </q-toolbar>
+        </div>
       </q-footer>
     </q-header>
   </q-layout>
